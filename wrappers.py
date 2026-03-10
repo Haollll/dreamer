@@ -331,6 +331,59 @@ class OneHotAction:
     return reference
 
 
+class GymWrapper:
+  """Wraps a standard gym environment for use with state-based Dreamer.
+
+  Provides two observation keys:
+    'state' : raw float32 state vector from the gym environment.
+    'image' : a dummy all-zero uint8 image kept for compatibility with the
+              episode-saving infrastructure (video summaries show black frames).
+  """
+
+  def __init__(self, env_name, size=(64, 64)):
+    self._env = gym.make(env_name)
+    self._size = size
+
+  @property
+  def observation_space(self):
+    state_shape = self._env.observation_space.shape
+    spaces = {
+        'state': gym.spaces.Box(-np.inf, np.inf, state_shape, dtype=np.float32),
+        'image': gym.spaces.Box(0, 255, self._size + (3,), dtype=np.uint8),
+    }
+    return gym.spaces.Dict(spaces)
+
+  @property
+  def action_space(self):
+    return self._env.action_space
+
+  def step(self, action):
+    obs, reward, done, info = self._env.step(action)
+    obs_dict = {
+        'state': np.array(obs, dtype=np.float32),
+        'image': np.zeros(self._size + (3,), dtype=np.uint8),
+    }
+    if 'discount' not in info:
+      info['discount'] = np.array(1 - float(done), dtype=np.float32)
+    return obs_dict, reward, done, info
+
+  def reset(self):
+    obs = self._env.reset()
+    # gym ≥ 0.26 returns (obs, info); handle both signatures
+    if isinstance(obs, tuple):
+      obs = obs[0]
+    return {
+        'state': np.array(obs, dtype=np.float32),
+        'image': np.zeros(self._size + (3,), dtype=np.uint8),
+    }
+
+  def render(self, *args, **kwargs):
+    return self._env.render(*args, **kwargs)
+
+  def close(self):
+    self._env.close()
+
+
 class RewardObs:
 
   def __init__(self, env):

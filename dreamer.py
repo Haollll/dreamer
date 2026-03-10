@@ -23,6 +23,7 @@ sys.path.append(str(pathlib.Path(__file__).parent))
 import models
 import tools
 import wrappers
+import alt_models
 
 
 def define_config():
@@ -80,6 +81,8 @@ def define_config():
   config.expl_amount = 0.3
   config.expl_decay = 0.0
   config.expl_min = 0.0
+  # World model selection.
+  config.world_model = 'rssm'  # 'rssm' | 'linear' | 'mlp'
   return config
 
 
@@ -130,13 +133,24 @@ class Dreamer(tools.Module):
 
   @tf.function
   def policy(self, obs, state, training):
-    if state is None:
-      latent = self._dynamics.initial(len(obs['image']))
-      action = tf.zeros((len(obs['image']), self._actdim), self._float)
+    if self._c.world_model == 'rssm':
+      if state is None:
+        latent = self._dynamics.initial(len(obs['image']))
+        action = tf.zeros((len(obs['image']), self._actdim), self._float)
+      else:
+        latent, action = state
+      embed = self._encode(preprocess(obs, self._c))
+      latent, _ = self._dynamics.obs_step(latent, action, embed)
     else:
-      latent, action = state
-    embed = self._encode(preprocess(obs, self._c))
-    latent, _ = self._dynamics.obs_step(latent, action, embed)
+      # Alt models: use state observations directly.
+      batch_size = tf.shape(obs['state'])[0]
+      if state is None:
+        latent = self._dynamics.initial(batch_size)
+        action = tf.zeros([batch_size, self._actdim], self._float)
+      else:
+        latent, action = state
+      obs_state = tf.cast(obs['state'], self._float)
+      latent, _ = self._dynamics.obs_step(latent, action, obs_state)
     feat = self._dynamics.get_feat(latent)
     if training:
       action = self._actor(feat).sample()
@@ -152,9 +166,11 @@ class Dreamer(tools.Module):
 
   @tf.function()
   def train(self, data, log_images=False):
-    self._strategy.experimental_run_v2(self._train, args=(data, log_images))
+    self._strategy.run(self._train, args=(data, log_images))
 
   def _train(self, data, log_images):
+    if self._c.world_model != 'rssm':
+      return self._train_alt(data, log_images)
     with tf.GradientTape() as model_tape:
       embed = self._encode(data)
       post, prior = self._dynamics.observe(embed, data['action'])
@@ -211,37 +227,133 @@ class Dreamer(tools.Module):
       if tf.equal(log_images, True):
         self._image_summaries(data, embed, image_pred)
 
+  # ------------------------------------------------------------------
+  # Alternative-model training (LinearSSM / MLPDynamics)
+  # ------------------------------------------------------------------
+
+  def _train_alt(self, data, log_images):
+    """Training step for state-based alt world models (no CNN, no KL)."""
+    obs = tf.cast(data['state'], self._float)
+    n_replicas = float(self._strategy.num_replicas_in_sync)
+
+    # ---- World model update ----
+    if self._c.world_model == 'mlp':
+      with tf.GradientTape() as model_tape:
+        model_loss = self._dynamics.compute_loss(obs, data['action'])
+        model_loss /= n_replicas
+      model_norm = self._model_opt(model_tape, model_loss)
+    else:  # 'linear': numpy least-squares, updated via tf.py_function
+      def _update_linear_buffer(s, a):
+        self._dynamics.update_buffer(s.numpy(), a.numpy())
+        return tf.constant(0.0)
+      model_loss = tf.py_function(
+          _update_linear_buffer, [obs, data['action']], tf.float32)
+      model_norm = tf.constant(0.0)
+
+    # ---- Get post states from observed sequence ----
+    post, _ = self._dynamics.observe(obs, data['action'])
+    feat = self._dynamics.get_feat(post)
+
+    # ---- Reward model update (trained from actual transitions) ----
+    with tf.GradientTape() as reward_tape:
+      reward_pred = self._reward(feat)
+      reward_loss = -tf.reduce_mean(reward_pred.log_prob(
+          tf.cast(data['reward'], self._float)))
+      reward_loss /= n_replicas
+    reward_norm = self._reward_opt(reward_tape, reward_loss)
+
+    # ---- Actor update (imagine ahead from current posterior) ----
+    with tf.GradientTape() as actor_tape:
+      imag_feat = self._imagine_ahead(post)
+      reward = self._reward(imag_feat).mode()
+      pcont = self._c.discount * tf.ones_like(reward)
+      value = self._value(imag_feat).mode()
+      returns = tools.lambda_return(
+          reward[:-1], value[:-1], pcont[:-1],
+          bootstrap=value[-1], lambda_=self._c.disclam, axis=0)
+      discount = tf.stop_gradient(tf.math.cumprod(tf.concat(
+          [tf.ones_like(pcont[:1]), pcont[:-2]], 0), 0))
+      actor_loss = -tf.reduce_mean(discount * returns)
+      actor_loss /= n_replicas
+
+    # ---- Value update ----
+    with tf.GradientTape() as value_tape:
+      value_pred = self._value(imag_feat)[:-1]
+      target = tf.stop_gradient(returns)
+      value_loss = -tf.reduce_mean(discount * value_pred.log_prob(target))
+      value_loss /= n_replicas
+
+    actor_norm = self._actor_opt(actor_tape, actor_loss)
+    value_norm = self._value_opt(value_tape, value_loss)
+
+    if tf.distribute.get_replica_context().replica_id_in_sync_group == 0:
+      if self._c.log_scalars:
+        self._metrics['model_loss'].update_state(model_loss)
+        self._metrics['reward_loss'].update_state(reward_loss)
+        self._metrics['value_loss'].update_state(value_loss)
+        self._metrics['actor_loss'].update_state(actor_loss)
+        self._metrics['model_grad_norm'].update_state(model_norm)
+        self._metrics['reward_grad_norm'].update_state(reward_norm)
+        self._metrics['actor_grad_norm'].update_state(actor_norm)
+        self._metrics['value_grad_norm'].update_state(value_norm)
+        self._metrics['action_ent'].update_state(self._actor(feat).entropy())
+
   def _build_model(self):
     acts = dict(
         elu=tf.nn.elu, relu=tf.nn.relu, swish=tf.nn.swish,
         leaky_relu=tf.nn.leaky_relu)
-    cnn_act = acts[self._c.cnn_act]
     act = acts[self._c.dense_act]
-    self._encode = models.ConvEncoder(self._c.cnn_depth, cnn_act)
-    self._dynamics = models.RSSM(
-        self._c.stoch_size, self._c.deter_size, self._c.deter_size)
-    self._decode = models.ConvDecoder(self._c.cnn_depth, cnn_act)
-    self._reward = models.DenseDecoder((), 2, self._c.num_units, act=act)
-    if self._c.pcont:
-      self._pcont = models.DenseDecoder(
-          (), 3, self._c.num_units, 'binary', act=act)
-    self._value = models.DenseDecoder((), 3, self._c.num_units, act=act)
-    self._actor = models.ActionDecoder(
-        self._actdim, 4, self._c.num_units, self._c.action_dist,
-        init_std=self._c.action_init_std, act=act)
-    model_modules = [self._encode, self._dynamics, self._decode, self._reward]
-    if self._c.pcont:
-      model_modules.append(self._pcont)
     Optimizer = functools.partial(
         tools.Adam, wd=self._c.weight_decay, clip=self._c.grad_clip,
         wdpattern=self._c.weight_decay_pattern)
-    self._model_opt = Optimizer('model', model_modules, self._c.model_lr)
+
+    # Consume the first batch now so we can inspect shapes for alt models,
+    # then reuse it for the variable-initialisation train call below.
+    init_batch = next(self._dataset)
+
+    if self._c.world_model == 'rssm':
+      cnn_act = acts[self._c.cnn_act]
+      self._encode = models.ConvEncoder(self._c.cnn_depth, cnn_act)
+      self._dynamics = models.RSSM(
+          self._c.stoch_size, self._c.deter_size, self._c.deter_size)
+      self._decode = models.ConvDecoder(self._c.cnn_depth, cnn_act)
+      self._reward = models.DenseDecoder((), 2, self._c.num_units, act=act)
+      if self._c.pcont:
+        self._pcont = models.DenseDecoder(
+            (), 3, self._c.num_units, 'binary', act=act)
+      self._value = models.DenseDecoder((), 3, self._c.num_units, act=act)
+      self._actor = models.ActionDecoder(
+          self._actdim, 4, self._c.num_units, self._c.action_dist,
+          init_std=self._c.action_init_std, act=act)
+      model_modules = [self._encode, self._dynamics, self._decode, self._reward]
+      if self._c.pcont:
+        model_modules.append(self._pcont)
+      self._model_opt = Optimizer('model', model_modules, self._c.model_lr)
+    else:
+      # State-based alt models: no CNN encoder/decoder.
+      obs_dim = int(init_batch['state'].shape[-1])
+      action_dim = self._actdim
+      self._encode = None  # unused; state passed directly
+      self._decode = None  # unused
+      if self._c.world_model == 'linear':
+        self._dynamics = alt_models.LinearSSM(obs_dim, action_dim)
+        self._model_opt = None  # LinearSSM uses numpy least-squares, not SGD
+      elif self._c.world_model == 'mlp':
+        self._dynamics = alt_models.MLPDynamics(obs_dim, action_dim)
+        self._model_opt = Optimizer('model', [self._dynamics], self._c.model_lr)
+      else:
+        raise NotImplementedError(self._c.world_model)
+      self._reward = models.DenseDecoder((), 2, self._c.num_units, act=act)
+      self._reward_opt = Optimizer('reward', [self._reward], self._c.model_lr)
+      self._value = models.DenseDecoder((), 3, self._c.num_units, act=act)
+      self._actor = models.ActionDecoder(
+          self._actdim, 4, self._c.num_units, self._c.action_dist,
+          init_std=self._c.action_init_std, act=act)
+
     self._value_opt = Optimizer('value', [self._value], self._c.value_lr)
     self._actor_opt = Optimizer('actor', [self._actor], self._c.actor_lr)
-    # Do a train step to initialize all variables, including optimizer
-    # statistics. Ideally, we would use batch size zero, but that doesn't work
-    # in multi-GPU mode.
-    self.train(next(self._dataset))
+    # Do a train step to initialise all variables including optimizer statistics.
+    self.train(init_batch)
 
   def _exploration(self, action, training):
     if training:
@@ -331,6 +443,8 @@ def preprocess(obs, config):
   obs = obs.copy()
   with tf.device('cpu:0'):
     obs['image'] = tf.cast(obs['image'], dtype) / 255.0 - 0.5
+    if 'state' in obs:
+      obs['state'] = tf.cast(obs['state'], dtype)
     clip_rewards = dict(none=lambda x: x, tanh=tf.tanh)[config.clip_rewards]
     obs['reward'] = clip_rewards(obs['reward'])
   return obs
@@ -384,6 +498,10 @@ def make_env(config, writer, prefix, datadir, store):
         task, config.action_repeat, (64, 64), grayscale=False,
         life_done=True, sticky_actions=True)
     env = wrappers.OneHotAction(env)
+  elif suite == 'gym':
+    env = wrappers.GymWrapper(task)
+    env = wrappers.ActionRepeat(env, config.action_repeat)
+    env = wrappers.NormalizeActions(env)
   else:
     raise NotImplementedError(suite)
   env = wrappers.TimeLimit(env, config.time_limit / config.action_repeat)
