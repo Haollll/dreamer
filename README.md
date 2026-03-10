@@ -1,6 +1,6 @@
 # Dream to Control — World Model Comparison
 
-基於 [DreamerV1](https://github.com/danijar/dreamer) 的擴展實驗，比較三種世界模型在低維狀態環境（Pendulum）的表現。
+基於 [DreamerV1](https://github.com/danijar/dreamer) 的擴展實驗，比較三種世界模型在低維狀態環境（Pendulum）的表現。（課程報告）
 
 > **Note:** 查看 [DreamerV2](https://github.com/danijar/dreamerv2) 以獲得支援 Atari 和 DMControl 的更新版本。
 
