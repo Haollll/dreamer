@@ -1,0 +1,315 @@
+{"step": 200, "train/return": -1585.164794921875, "train/length": 100, "episodes": 1}
+{"step": 400, "train/return": -1336.10498046875, "train/length": 100, "episodes": 2}
+{"step": 600, "train/return": -1183.3846435546875, "train/length": 100, "episodes": 3}
+{"step": 800, "train/return": -1082.2392578125, "train/length": 100, "episodes": 4}
+{"step": 1000, "train/return": -1182.046142578125, "train/length": 100, "episodes": 5}
+{"step": 1000, "expl_amount": 0.0, "model_loss": 0.0, "reward_loss": 19.053476333618164, "value_loss": 1775.0052490234375, "actor_loss": 50.93306350708008, "model_grad_norm": 0.0, "reward_grad_norm": 20.585180282592773, "actor_grad_norm": 1.8797695636749268, "value_grad_norm": 430.7682800292969, "action_ent": NaN}
+{"step": 1000, "test/return": -1397.657470703125, "test/length": 100, "episodes": 5}
+{"step": 1200, "train/return": -1298.1744384765625, "train/length": 100, "episodes": 6}
+{"step": 1400, "train/return": -1569.5335693359375, "train/length": 100, "episodes": 7}
+{"step": 1600, "train/return": -1051.21728515625, "train/length": 100, "episodes": 8}
+{"step": 1800, "train/return": -1569.1875, "train/length": 100, "episodes": 9}
+{"step": 2000, "train/return": -1057.903076171875, "train/length": 100, "episodes": 10}
+{"step": 2000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 2.4825100898742676, "value_loss": 1463.4285888671875, "actor_loss": 62.07020568847656, "model_grad_norm": 0.0, "reward_grad_norm": 3.3158812522888184, "actor_grad_norm": 17.178775787353516, "value_grad_norm": 1107.570068359375, "action_ent": NaN, "fps": 2.498988440317764}
+{"step": 2200, "train/return": -1323.84814453125, "train/length": 100, "episodes": 11}
+{"step": 2400, "train/return": -1344.2811279296875, "train/length": 100, "episodes": 12}
+{"step": 2600, "train/return": -1420.2506103515625, "train/length": 100, "episodes": 13}
+{"step": 2800, "train/return": -1623.4302978515625, "train/length": 100, "episodes": 14}
+{"step": 3000, "train/return": -1677.039794921875, "train/length": 100, "episodes": 15}
+{"step": 3000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 2.170283317565918, "value_loss": 1333.1060791015625, "actor_loss": 79.93413543701172, "model_grad_norm": 0.0, "reward_grad_norm": 3.65604829788208, "actor_grad_norm": 8.391294479370117, "value_grad_norm": 2037.6700439453125, "action_ent": NaN, "fps": 4.587489313997261}
+{"step": 3200, "train/return": -1555.050537109375, "train/length": 100, "episodes": 16}
+{"step": 3400, "train/return": -1652.8472900390625, "train/length": 100, "episodes": 17}
+{"step": 3600, "train/return": -1580.94580078125, "train/length": 100, "episodes": 18}
+{"step": 3800, "train/return": -1505.6365966796875, "train/length": 100, "episodes": 19}
+{"step": 4000, "train/return": -1521.1832275390625, "train/length": 100, "episodes": 20}
+{"step": 4000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.56577730178833, "value_loss": 1795.4510498046875, "actor_loss": 144.15431213378906, "model_grad_norm": 0.0, "reward_grad_norm": 2.3263144493103027, "actor_grad_norm": 10.648063659667969, "value_grad_norm": 5059.646484375, "action_ent": NaN, "fps": 4.5000659586322165}
+{"step": 4200, "train/return": -1553.903564453125, "train/length": 100, "episodes": 21}
+{"step": 4400, "train/return": -1473.151123046875, "train/length": 100, "episodes": 22}
+{"step": 4600, "train/return": -1658.63330078125, "train/length": 100, "episodes": 23}
+{"step": 4800, "train/return": -1669.1441650390625, "train/length": 100, "episodes": 24}
+{"step": 5000, "train/return": -1515.1090087890625, "train/length": 100, "episodes": 25}
+{"step": 5000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.3285177946090698, "value_loss": 1416.2220458984375, "actor_loss": 238.04940795898438, "model_grad_norm": 0.0, "reward_grad_norm": 1.4786030054092407, "actor_grad_norm": 7.420161724090576, "value_grad_norm": 7616.4111328125, "action_ent": NaN, "fps": 4.598197269835281}
+{"step": 5200, "train/return": -1576.8203125, "train/length": 100, "episodes": 26}
+{"step": 5400, "train/return": -1508.7935791015625, "train/length": 100, "episodes": 27}
+{"step": 5600, "train/return": -1498.4300537109375, "train/length": 100, "episodes": 28}
+{"step": 5800, "train/return": -1569.324951171875, "train/length": 100, "episodes": 29}
+{"step": 6000, "train/return": -1509.02392578125, "train/length": 100, "episodes": 30}
+{"step": 6000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.2352795600891113, "value_loss": 979.8502197265625, "actor_loss": 372.3079833984375, "model_grad_norm": 0.0, "reward_grad_norm": 1.582917332649231, "actor_grad_norm": 4.3708295822143555, "value_grad_norm": 8999.2353515625, "action_ent": NaN, "fps": 4.6522546868570664}
+{"step": 6000, "test/return": -1465.227783203125, "test/length": 100, "episodes": 30}
+{"step": 6200, "train/return": -1489.1046142578125, "train/length": 100, "episodes": 31}
+{"step": 6400, "train/return": -1530.8751220703125, "train/length": 100, "episodes": 32}
+{"step": 6600, "train/return": -1557.8277587890625, "train/length": 100, "episodes": 33}
+{"step": 6800, "train/return": -1570.6629638671875, "train/length": 100, "episodes": 34}
+{"step": 7000, "train/return": -1488.4990234375, "train/length": 100, "episodes": 35}
+{"step": 7000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.1749931573867798, "value_loss": 404.3770751953125, "actor_loss": 561.5507202148438, "model_grad_norm": 0.0, "reward_grad_norm": 1.3920700550079346, "actor_grad_norm": 8.730413436889648, "value_grad_norm": 6595.51123046875, "action_ent": NaN, "fps": 4.591569514645325}
+{"step": 7200, "train/return": -1367.6046142578125, "train/length": 100, "episodes": 36}
+{"step": 7400, "train/return": -1456.7115478515625, "train/length": 100, "episodes": 37}
+{"step": 7600, "train/return": -1450.2728271484375, "train/length": 100, "episodes": 38}
+{"step": 7800, "train/return": -1593.90673828125, "train/length": 100, "episodes": 39}
+{"step": 8000, "train/return": -1558.2691650390625, "train/length": 100, "episodes": 40}
+{"step": 8000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.1282987594604492, "value_loss": 177.80101013183594, "actor_loss": 735.127685546875, "model_grad_norm": 0.0, "reward_grad_norm": 1.3524916172027588, "actor_grad_norm": 23.316783905029297, "value_grad_norm": 3556.496337890625, "action_ent": NaN, "fps": 4.904481131958264}
+{"step": 8200, "train/return": -1563.0386962890625, "train/length": 100, "episodes": 41}
+{"step": 8400, "train/return": -1568.3280029296875, "train/length": 100, "episodes": 42}
+{"step": 8600, "train/return": -1568.6015625, "train/length": 100, "episodes": 43}
+{"step": 8800, "train/return": -1466.951416015625, "train/length": 100, "episodes": 44}
+{"step": 9000, "train/return": -1341.9339599609375, "train/length": 100, "episodes": 45}
+{"step": 9000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0978597402572632, "value_loss": 189.09506225585938, "actor_loss": 726.2919311523438, "model_grad_norm": 0.0, "reward_grad_norm": 1.423388957977295, "actor_grad_norm": 7.303037643432617, "value_grad_norm": 5176.01025390625, "action_ent": NaN, "fps": 4.973596226986045}
+{"step": 9200, "train/return": -1245.6912841796875, "train/length": 100, "episodes": 46}
+{"step": 9400, "train/return": -1122.718505859375, "train/length": 100, "episodes": 47}
+{"step": 9600, "train/return": -1052.169921875, "train/length": 100, "episodes": 48}
+{"step": 9800, "train/return": -1043.7613525390625, "train/length": 100, "episodes": 49}
+{"step": 10000, "train/return": -1088.3033447265625, "train/length": 100, "episodes": 50}
+{"step": 10000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0600024461746216, "value_loss": 190.95289611816406, "actor_loss": 685.436279296875, "model_grad_norm": 0.0, "reward_grad_norm": 1.416960597038269, "actor_grad_norm": 4.2602925300598145, "value_grad_norm": 3387.51220703125, "action_ent": NaN, "fps": 4.280156151066511}
+{"step": 10200, "train/return": -1151.2899169921875, "train/length": 100, "episodes": 51}
+{"step": 10400, "train/return": -1131.36767578125, "train/length": 100, "episodes": 52}
+{"step": 10600, "train/return": -1330.681640625, "train/length": 100, "episodes": 53}
+{"step": 10800, "train/return": -1347.4361572265625, "train/length": 100, "episodes": 54}
+{"step": 11000, "train/return": -1536.65478515625, "train/length": 100, "episodes": 55}
+{"step": 11000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.022792100906372, "value_loss": 199.12326049804688, "actor_loss": 690.0274047851562, "model_grad_norm": 0.0, "reward_grad_norm": 2.024529457092285, "actor_grad_norm": 3.7974491119384766, "value_grad_norm": 4915.7939453125, "action_ent": NaN, "fps": 4.414609158913936}
+{"step": 11000, "test/return": -1178.7047119140625, "test/length": 100, "episodes": 55}
+{"step": 11200, "train/return": -1311.6922607421875, "train/length": 100, "episodes": 56}
+{"step": 11400, "train/return": -1547.62353515625, "train/length": 100, "episodes": 57}
+{"step": 11600, "train/return": -1561.3797607421875, "train/length": 100, "episodes": 58}
+{"step": 11800, "train/return": -910.4966430664062, "train/length": 100, "episodes": 59}
+{"step": 12000, "train/return": -1483.470458984375, "train/length": 100, "episodes": 60}
+{"step": 12000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0037007331848145, "value_loss": 94.66925811767578, "actor_loss": 702.0791625976562, "model_grad_norm": 0.0, "reward_grad_norm": 1.7000226974487305, "actor_grad_norm": 4.949363708496094, "value_grad_norm": 1737.4295654296875, "action_ent": NaN, "fps": 4.855395209576707}
+{"step": 12200, "train/return": -1354.7529296875, "train/length": 100, "episodes": 61}
+{"step": 12400, "train/return": -1161.6290283203125, "train/length": 100, "episodes": 62}
+{"step": 12600, "train/return": -1377.2784423828125, "train/length": 100, "episodes": 63}
+{"step": 12800, "train/return": -1369.94775390625, "train/length": 100, "episodes": 64}
+{"step": 13000, "train/return": -1106.5828857421875, "train/length": 100, "episodes": 65}
+{"step": 13000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9851476550102234, "value_loss": 97.07302856445312, "actor_loss": 712.7493896484375, "model_grad_norm": 0.0, "reward_grad_norm": 1.5699790716171265, "actor_grad_norm": 4.19276237487793, "value_grad_norm": 2098.826904296875, "action_ent": NaN, "fps": 5.3454612591101105}
+{"step": 13200, "train/return": -1421.244384765625, "train/length": 100, "episodes": 66}
+{"step": 13400, "train/return": -1489.8192138671875, "train/length": 100, "episodes": 67}
+{"step": 13600, "train/return": -1306.910888671875, "train/length": 100, "episodes": 68}
+{"step": 13800, "train/return": -1339.9095458984375, "train/length": 100, "episodes": 69}
+{"step": 14000, "train/return": -1251.198486328125, "train/length": 100, "episodes": 70}
+{"step": 14000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9872679710388184, "value_loss": 103.37492370605469, "actor_loss": 756.2134399414062, "model_grad_norm": 0.0, "reward_grad_norm": 1.7037887573242188, "actor_grad_norm": 5.838618755340576, "value_grad_norm": 2811.054931640625, "action_ent": NaN, "fps": 5.12578635705687}
+{"step": 14200, "train/return": -1285.8701171875, "train/length": 100, "episodes": 71}
+{"step": 14400, "train/return": -1324.73291015625, "train/length": 100, "episodes": 72}
+{"step": 14600, "train/return": -1159.2760009765625, "train/length": 100, "episodes": 73}
+{"step": 14800, "train/return": -1349.0220947265625, "train/length": 100, "episodes": 74}
+{"step": 15000, "train/return": -1266.859619140625, "train/length": 100, "episodes": 75}
+{"step": 15000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9750385880470276, "value_loss": 87.45250701904297, "actor_loss": 830.2899780273438, "model_grad_norm": 0.0, "reward_grad_norm": 1.3180023431777954, "actor_grad_norm": 7.713573455810547, "value_grad_norm": 2172.6318359375, "action_ent": NaN, "fps": 4.6422825379866035}
+{"step": 15200, "train/return": -1216.4552001953125, "train/length": 100, "episodes": 76}
+{"step": 15400, "train/return": -1401.5362548828125, "train/length": 100, "episodes": 77}
+{"step": 15600, "train/return": -1413.822021484375, "train/length": 100, "episodes": 78}
+{"step": 15800, "train/return": -1417.1134033203125, "train/length": 100, "episodes": 79}
+{"step": 16000, "train/return": -1351.7655029296875, "train/length": 100, "episodes": 80}
+{"step": 16000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9754501581192017, "value_loss": 57.433101654052734, "actor_loss": 877.4845581054688, "model_grad_norm": 0.0, "reward_grad_norm": 1.8989711999893188, "actor_grad_norm": 7.136536121368408, "value_grad_norm": 1461.815673828125, "action_ent": NaN, "fps": 4.925677460476685}
+{"step": 16000, "test/return": -1500.712890625, "test/length": 100, "episodes": 80}
+{"step": 16200, "train/return": -1426.6624755859375, "train/length": 100, "episodes": 81}
+{"step": 16400, "train/return": -1336.5076904296875, "train/length": 100, "episodes": 82}
+{"step": 16600, "train/return": -1301.7669677734375, "train/length": 100, "episodes": 83}
+{"step": 16800, "train/return": -1342.817626953125, "train/length": 100, "episodes": 84}
+{"step": 17000, "train/return": -821.8231811523438, "train/length": 100, "episodes": 85}
+{"step": 17000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9759929180145264, "value_loss": 44.38718795776367, "actor_loss": 910.8016967773438, "model_grad_norm": 0.0, "reward_grad_norm": 1.5058544874191284, "actor_grad_norm": 5.568943023681641, "value_grad_norm": 1369.0936279296875, "action_ent": NaN, "fps": 5.311989703156678}
+{"step": 17200, "train/return": -1548.1451416015625, "train/length": 100, "episodes": 86}
+{"step": 17400, "train/return": -1401.92578125, "train/length": 100, "episodes": 87}
+{"step": 17600, "train/return": -1418.0087890625, "train/length": 100, "episodes": 88}
+{"step": 17800, "train/return": -1407.2060546875, "train/length": 100, "episodes": 89}
+{"step": 18000, "train/return": -1229.4072265625, "train/length": 100, "episodes": 90}
+{"step": 18000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9741807579994202, "value_loss": 29.927135467529297, "actor_loss": 958.0306396484375, "model_grad_norm": 0.0, "reward_grad_norm": 1.3627111911773682, "actor_grad_norm": 4.442687511444092, "value_grad_norm": 1226.8128662109375, "action_ent": NaN, "fps": 4.537144828183715}
+{"step": 18200, "train/return": -1512.1558837890625, "train/length": 100, "episodes": 91}
+{"step": 18400, "train/return": -1088.95703125, "train/length": 100, "episodes": 92}
+{"step": 18600, "train/return": -1460.329345703125, "train/length": 100, "episodes": 93}
+{"step": 18800, "train/return": -1488.8582763671875, "train/length": 100, "episodes": 94}
+{"step": 19000, "train/return": -1513.6851806640625, "train/length": 100, "episodes": 95}
+{"step": 19000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.975567638874054, "value_loss": 26.795818328857422, "actor_loss": 1013.8040771484375, "model_grad_norm": 0.0, "reward_grad_norm": 1.8904260396957397, "actor_grad_norm": 5.023097038269043, "value_grad_norm": 1418.4097900390625, "action_ent": NaN, "fps": 5.136886360116047}
+{"step": 19200, "train/return": -1509.615478515625, "train/length": 100, "episodes": 96}
+{"step": 19400, "train/return": -1458.4630126953125, "train/length": 100, "episodes": 97}
+{"step": 19600, "train/return": -1465.8768310546875, "train/length": 100, "episodes": 98}
+{"step": 19800, "train/return": -1407.714111328125, "train/length": 100, "episodes": 99}
+{"step": 20000, "train/return": -1483.4161376953125, "train/length": 100, "episodes": 100}
+{"step": 20000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9683490991592407, "value_loss": 19.60297203063965, "actor_loss": 1037.5841064453125, "model_grad_norm": 0.0, "reward_grad_norm": 1.326392650604248, "actor_grad_norm": 8.318881034851074, "value_grad_norm": 1188.260986328125, "action_ent": NaN, "fps": 4.821970818241739}
+{"step": 20200, "train/return": -1522.083984375, "train/length": 100, "episodes": 101}
+{"step": 20400, "train/return": -1530.6722412109375, "train/length": 100, "episodes": 102}
+{"step": 20600, "train/return": -1534.1651611328125, "train/length": 100, "episodes": 103}
+{"step": 20800, "train/return": -1520.790283203125, "train/length": 100, "episodes": 104}
+{"step": 21000, "train/return": -1456.9395751953125, "train/length": 100, "episodes": 105}
+{"step": 21000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9695676565170288, "value_loss": 17.306781768798828, "actor_loss": 1075.8597412109375, "model_grad_norm": 0.0, "reward_grad_norm": 1.1833750009536743, "actor_grad_norm": 5.705377578735352, "value_grad_norm": 1035.1075439453125, "action_ent": NaN, "fps": 4.696561674361484}
+{"step": 21000, "test/return": -1411.2667236328125, "test/length": 100, "episodes": 105}
+{"step": 21200, "train/return": -1491.7706298828125, "train/length": 100, "episodes": 106}
+{"step": 21400, "train/return": -1552.2196044921875, "train/length": 100, "episodes": 107}
+{"step": 21600, "train/return": -1479.4521484375, "train/length": 100, "episodes": 108}
+{"step": 21800, "train/return": -1549.811279296875, "train/length": 100, "episodes": 109}
+{"step": 22000, "train/return": -1545.051025390625, "train/length": 100, "episodes": 110}
+{"step": 22000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9715424180030823, "value_loss": 18.317665100097656, "actor_loss": 1073.83203125, "model_grad_norm": 0.0, "reward_grad_norm": 1.1516014337539673, "actor_grad_norm": 6.634798526763916, "value_grad_norm": 1197.9727783203125, "action_ent": NaN, "fps": 4.832387269872422}
+{"step": 22200, "train/return": -1566.3519287109375, "train/length": 100, "episodes": 111}
+{"step": 22400, "train/return": -1523.2860107421875, "train/length": 100, "episodes": 112}
+{"step": 22600, "train/return": -1456.922119140625, "train/length": 100, "episodes": 113}
+{"step": 22800, "train/return": -1470.9388427734375, "train/length": 100, "episodes": 114}
+{"step": 23000, "train/return": -1147.5345458984375, "train/length": 100, "episodes": 115}
+{"step": 23000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9682854413986206, "value_loss": 37.136085510253906, "actor_loss": 1055.5244140625, "model_grad_norm": 0.0, "reward_grad_norm": 1.2789180278778076, "actor_grad_norm": 3.8699066638946533, "value_grad_norm": 2151.8623046875, "action_ent": NaN, "fps": 4.825614711689343}
+{"step": 23200, "train/return": -1565.06396484375, "train/length": 100, "episodes": 116}
+{"step": 23400, "train/return": -1559.2001953125, "train/length": 100, "episodes": 117}
+{"step": 23600, "train/return": -986.4275512695312, "train/length": 100, "episodes": 118}
+{"step": 23800, "train/return": -1513.4300537109375, "train/length": 100, "episodes": 119}
+{"step": 24000, "train/return": -1530.8289794921875, "train/length": 100, "episodes": 120}
+{"step": 24000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9739376306533813, "value_loss": 46.697357177734375, "actor_loss": 965.0826416015625, "model_grad_norm": 0.0, "reward_grad_norm": 1.551121711730957, "actor_grad_norm": 7.4446024894714355, "value_grad_norm": 2837.82666015625, "action_ent": NaN, "fps": 4.806295591948183}
+{"step": 24200, "train/return": -1573.2650146484375, "train/length": 100, "episodes": 121}
+{"step": 24400, "train/return": -1552.4249267578125, "train/length": 100, "episodes": 122}
+{"step": 24600, "train/return": -1571.722900390625, "train/length": 100, "episodes": 123}
+{"step": 24800, "train/return": -1218.46240234375, "train/length": 100, "episodes": 124}
+{"step": 25000, "train/return": -1182.3843994140625, "train/length": 100, "episodes": 125}
+{"step": 25000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9985958933830261, "value_loss": 75.82046508789062, "actor_loss": 826.9548950195312, "model_grad_norm": 0.0, "reward_grad_norm": 2.143178939819336, "actor_grad_norm": 0.2826468050479889, "value_grad_norm": 4038.1142578125, "action_ent": NaN, "fps": 5.735975146948581}
+{"step": 25200, "train/return": -1580.2159423828125, "train/length": 100, "episodes": 126}
+{"step": 25400, "train/return": -1585.314208984375, "train/length": 100, "episodes": 127}
+{"step": 25600, "train/return": -1291.9814453125, "train/length": 100, "episodes": 128}
+{"step": 25800, "train/return": -1549.046630859375, "train/length": 100, "episodes": 129}
+{"step": 26000, "train/return": -1604.62255859375, "train/length": 100, "episodes": 130}
+{"step": 26000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0080785751342773, "value_loss": 47.363006591796875, "actor_loss": 723.6031494140625, "model_grad_norm": 0.0, "reward_grad_norm": 3.77250337600708, "actor_grad_norm": 0.049965690821409225, "value_grad_norm": 3493.4619140625, "action_ent": -14.982990264892578, "fps": 5.622416706713205}
+{"step": 26000, "test/return": -1501.153564453125, "test/length": 100, "episodes": 130}
+{"step": 26200, "train/return": -1567.7900390625, "train/length": 100, "episodes": 131}
+{"step": 26400, "train/return": -1587.906494140625, "train/length": 100, "episodes": 132}
+{"step": 26600, "train/return": -1600.739990234375, "train/length": 100, "episodes": 133}
+{"step": 26800, "train/return": -1598.9698486328125, "train/length": 100, "episodes": 134}
+{"step": 27000, "train/return": -1582.067138671875, "train/length": 100, "episodes": 135}
+{"step": 27000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.001725196838379, "value_loss": 37.640403747558594, "actor_loss": 691.9584350585938, "model_grad_norm": 0.0, "reward_grad_norm": 2.811663866043091, "actor_grad_norm": 0.03579019010066986, "value_grad_norm": 2373.099853515625, "action_ent": NaN, "fps": 5.168014150865102}
+{"step": 27200, "train/return": -1340.7222900390625, "train/length": 100, "episodes": 136}
+{"step": 27400, "train/return": -1557.3631591796875, "train/length": 100, "episodes": 137}
+{"step": 27600, "train/return": -1348.794189453125, "train/length": 100, "episodes": 138}
+{"step": 27800, "train/return": -1489.2991943359375, "train/length": 100, "episodes": 139}
+{"step": 28000, "train/return": -1598.9759521484375, "train/length": 100, "episodes": 140}
+{"step": 28000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9929406046867371, "value_loss": 26.36285400390625, "actor_loss": 684.7792358398438, "model_grad_norm": 0.0, "reward_grad_norm": 2.2279253005981445, "actor_grad_norm": 0.02218778431415558, "value_grad_norm": 1784.270263671875, "action_ent": NaN, "fps": 5.786246249117696}
+{"step": 28200, "train/return": -1543.9912109375, "train/length": 100, "episodes": 141}
+{"step": 28400, "train/return": -1232.8983154296875, "train/length": 100, "episodes": 142}
+{"step": 28600, "train/return": -1446.3421630859375, "train/length": 100, "episodes": 143}
+{"step": 28800, "train/return": -1189.6531982421875, "train/length": 100, "episodes": 144}
+{"step": 29000, "train/return": -1278.3489990234375, "train/length": 100, "episodes": 145}
+{"step": 29000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9939647912979126, "value_loss": 25.5037784576416, "actor_loss": 726.644775390625, "model_grad_norm": 0.0, "reward_grad_norm": 2.256422996520996, "actor_grad_norm": 0.015014798380434513, "value_grad_norm": 2208.05322265625, "action_ent": NaN, "fps": 5.787817286166502}
+{"step": 29200, "train/return": -1571.3013916015625, "train/length": 100, "episodes": 146}
+{"step": 29400, "train/return": -1535.8125, "train/length": 100, "episodes": 147}
+{"step": 29600, "train/return": -1563.3875732421875, "train/length": 100, "episodes": 148}
+{"step": 29800, "train/return": -1562.3865966796875, "train/length": 100, "episodes": 149}
+{"step": 30000, "train/return": -1599.0927734375, "train/length": 100, "episodes": 150}
+{"step": 30000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9944929480552673, "value_loss": 19.2583065032959, "actor_loss": 740.7587280273438, "model_grad_norm": 0.0, "reward_grad_norm": 2.405013084411621, "actor_grad_norm": 0.015089612454175949, "value_grad_norm": 1719.3160400390625, "action_ent": -14.976963996887207, "fps": 5.753976486730804}
+{"step": 30200, "train/return": -1165.161376953125, "train/length": 100, "episodes": 151}
+{"step": 30400, "train/return": -1592.2542724609375, "train/length": 100, "episodes": 152}
+{"step": 30600, "train/return": -1584.2933349609375, "train/length": 100, "episodes": 153}
+{"step": 30800, "train/return": -1178.6248779296875, "train/length": 100, "episodes": 154}
+{"step": 31000, "train/return": -1569.9080810546875, "train/length": 100, "episodes": 155}
+{"step": 31000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9907492995262146, "value_loss": 22.60419273376465, "actor_loss": 744.3538208007812, "model_grad_norm": 0.0, "reward_grad_norm": 2.4898996353149414, "actor_grad_norm": 0.012114427983760834, "value_grad_norm": 2341.9306640625, "action_ent": NaN, "fps": 5.608966307423659}
+{"step": 31000, "test/return": -1620.5928955078125, "test/length": 100, "episodes": 155}
+{"step": 31200, "train/return": -1018.2300415039062, "train/length": 100, "episodes": 156}
+{"step": 31400, "train/return": -1184.51171875, "train/length": 100, "episodes": 157}
+{"step": 31600, "train/return": -1552.0791015625, "train/length": 100, "episodes": 158}
+{"step": 31800, "train/return": -1613.968017578125, "train/length": 100, "episodes": 159}
+{"step": 32000, "train/return": -1395.0, "train/length": 100, "episodes": 160}
+{"step": 32000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9968912601470947, "value_loss": 17.17461585998535, "actor_loss": 764.6062622070312, "model_grad_norm": 0.0, "reward_grad_norm": 3.019479751586914, "actor_grad_norm": 0.008735636249184608, "value_grad_norm": 1926.1907958984375, "action_ent": -14.971293449401855, "fps": 5.613856237302866}
+{"step": 32200, "train/return": -1557.3236083984375, "train/length": 100, "episodes": 161}
+{"step": 32400, "train/return": -1286.67041015625, "train/length": 100, "episodes": 162}
+{"step": 32600, "train/return": -1175.922607421875, "train/length": 100, "episodes": 163}
+{"step": 32800, "train/return": -1539.24560546875, "train/length": 100, "episodes": 164}
+{"step": 33000, "train/return": -1564.4549560546875, "train/length": 100, "episodes": 165}
+{"step": 33000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.000209093093872, "value_loss": 14.82394027709961, "actor_loss": 792.0037231445312, "model_grad_norm": 0.0, "reward_grad_norm": 3.803128719329834, "actor_grad_norm": 0.007122145965695381, "value_grad_norm": 1792.643798828125, "action_ent": -14.974247932434082, "fps": 5.5233012566434}
+{"step": 33200, "train/return": -1581.9583740234375, "train/length": 100, "episodes": 166}
+{"step": 33400, "train/return": -1561.310302734375, "train/length": 100, "episodes": 167}
+{"step": 33600, "train/return": -1554.3399658203125, "train/length": 100, "episodes": 168}
+{"step": 33800, "train/return": -1528.1256103515625, "train/length": 100, "episodes": 169}
+{"step": 34000, "train/return": -1510.1949462890625, "train/length": 100, "episodes": 170}
+{"step": 34000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9968213438987732, "value_loss": 11.370295524597168, "actor_loss": 810.93798828125, "model_grad_norm": 0.0, "reward_grad_norm": 3.376164197921753, "actor_grad_norm": 0.0044181859120726585, "value_grad_norm": 1372.94677734375, "action_ent": -14.980021476745605, "fps": 5.56616652083434}
+{"step": 34200, "train/return": -1575.8153076171875, "train/length": 100, "episodes": 171}
+{"step": 34400, "train/return": -1274.4390869140625, "train/length": 100, "episodes": 172}
+{"step": 34600, "train/return": -1073.5108642578125, "train/length": 100, "episodes": 173}
+{"step": 34800, "train/return": -1584.77734375, "train/length": 100, "episodes": 174}
+{"step": 35000, "train/return": -1572.823974609375, "train/length": 100, "episodes": 175}
+{"step": 35000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.998684287071228, "value_loss": 14.053215026855469, "actor_loss": 824.7723999023438, "model_grad_norm": 0.0, "reward_grad_norm": 2.703648567199707, "actor_grad_norm": 0.0038014850579202175, "value_grad_norm": 1613.9951171875, "action_ent": -14.971160888671875, "fps": 5.551723105861706}
+{"step": 35200, "train/return": -1582.5958251953125, "train/length": 100, "episodes": 176}
+{"step": 35400, "train/return": -1589.459716796875, "train/length": 100, "episodes": 177}
+{"step": 35600, "train/return": -1513.7493896484375, "train/length": 100, "episodes": 178}
+{"step": 35800, "train/return": -1547.765625, "train/length": 100, "episodes": 179}
+{"step": 36000, "train/return": -1147.46240234375, "train/length": 100, "episodes": 180}
+{"step": 36000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0096259117126465, "value_loss": 16.241710662841797, "actor_loss": 826.718994140625, "model_grad_norm": 0.0, "reward_grad_norm": 5.312164783477783, "actor_grad_norm": 0.003537580370903015, "value_grad_norm": 2261.913818359375, "action_ent": -14.981225967407227, "fps": 5.497705162821665}
+{"step": 36000, "test/return": -1620.4715576171875, "test/length": 100, "episodes": 180}
+{"step": 36200, "train/return": -1550.092529296875, "train/length": 100, "episodes": 181}
+{"step": 36400, "train/return": -1491.2625732421875, "train/length": 100, "episodes": 182}
+{"step": 36600, "train/return": -1553.2977294921875, "train/length": 100, "episodes": 183}
+{"step": 36800, "train/return": -1597.8935546875, "train/length": 100, "episodes": 184}
+{"step": 37000, "train/return": -1552.596435546875, "train/length": 100, "episodes": 185}
+{"step": 37000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9973890781402588, "value_loss": 11.4415922164917, "actor_loss": 830.6157836914062, "model_grad_norm": 0.0, "reward_grad_norm": 2.2162647247314453, "actor_grad_norm": 0.0032695371191948652, "value_grad_norm": 1516.5498046875, "action_ent": -14.978313446044922, "fps": 5.5854498173593745}
+{"step": 37200, "train/return": -1566.0667724609375, "train/length": 100, "episodes": 186}
+{"step": 37400, "train/return": -1598.8748779296875, "train/length": 100, "episodes": 187}
+{"step": 37600, "train/return": -1578.822998046875, "train/length": 100, "episodes": 188}
+{"step": 37800, "train/return": -1537.6439208984375, "train/length": 100, "episodes": 189}
+{"step": 38000, "train/return": -1308.258056640625, "train/length": 100, "episodes": 190}
+{"step": 38000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9976220726966858, "value_loss": 13.437023162841797, "actor_loss": 815.6195068359375, "model_grad_norm": 0.0, "reward_grad_norm": 2.8373796939849854, "actor_grad_norm": 0.002525490242987871, "value_grad_norm": 1699.45166015625, "action_ent": -14.98289680480957, "fps": 5.635623547714445}
+{"step": 38200, "train/return": -1557.5830078125, "train/length": 100, "episodes": 191}
+{"step": 38400, "train/return": -1562.7796630859375, "train/length": 100, "episodes": 192}
+{"step": 38600, "train/return": -1061.7451171875, "train/length": 100, "episodes": 193}
+{"step": 38800, "train/return": -1033.5908203125, "train/length": 100, "episodes": 194}
+{"step": 39000, "train/return": -1265.86962890625, "train/length": 100, "episodes": 195}
+{"step": 39000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0014755725860596, "value_loss": 10.284624099731445, "actor_loss": 821.6201782226562, "model_grad_norm": 0.0, "reward_grad_norm": 2.6168713569641113, "actor_grad_norm": 0.0023530451580882072, "value_grad_norm": 1611.4638671875, "action_ent": -14.992298126220703, "fps": 5.645286098137346}
+{"step": 39200, "train/return": -1527.9237060546875, "train/length": 100, "episodes": 196}
+{"step": 39400, "train/return": -1538.8961181640625, "train/length": 100, "episodes": 197}
+{"step": 39600, "train/return": -1590.1915283203125, "train/length": 100, "episodes": 198}
+{"step": 39800, "train/return": -1603.8795166015625, "train/length": 100, "episodes": 199}
+{"step": 40000, "train/return": -1600.1824951171875, "train/length": 100, "episodes": 200}
+{"step": 40000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9985784292221069, "value_loss": 13.633251190185547, "actor_loss": 822.6939086914062, "model_grad_norm": 0.0, "reward_grad_norm": 2.2196037769317627, "actor_grad_norm": 0.002005955670028925, "value_grad_norm": 1457.0787353515625, "action_ent": -14.985433578491211, "fps": 5.631623168652586}
+{"step": 40200, "train/return": -1542.5653076171875, "train/length": 100, "episodes": 201}
+{"step": 40400, "train/return": -976.4698486328125, "train/length": 100, "episodes": 202}
+{"step": 40600, "train/return": -1379.09375, "train/length": 100, "episodes": 203}
+{"step": 40800, "train/return": -1277.632080078125, "train/length": 100, "episodes": 204}
+{"step": 41000, "train/return": -1164.0264892578125, "train/length": 100, "episodes": 205}
+{"step": 41000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.997407078742981, "value_loss": 9.811601638793945, "actor_loss": 847.04150390625, "model_grad_norm": 0.0, "reward_grad_norm": 3.484476089477539, "actor_grad_norm": 0.0015820334665477276, "value_grad_norm": 1183.84326171875, "action_ent": -14.985674858093262, "fps": 5.588627964788925}
+{"step": 41000, "test/return": -1472.6644287109375, "test/length": 100, "episodes": 205}
+{"step": 41200, "train/return": -1293.4423828125, "train/length": 100, "episodes": 206}
+{"step": 41400, "train/return": -1520.4805908203125, "train/length": 100, "episodes": 207}
+{"step": 41600, "train/return": -1543.5399169921875, "train/length": 100, "episodes": 208}
+{"step": 41800, "train/return": -946.1171264648438, "train/length": 100, "episodes": 209}
+{"step": 42000, "train/return": -1315.17724609375, "train/length": 100, "episodes": 210}
+{"step": 42000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.005232572555542, "value_loss": 8.137537956237793, "actor_loss": 845.1402587890625, "model_grad_norm": 0.0, "reward_grad_norm": 4.779620170593262, "actor_grad_norm": 0.0011820720974355936, "value_grad_norm": 1000.449462890625, "action_ent": -14.978235244750977, "fps": 5.540136070092514}
+{"step": 42200, "train/return": -1562.8294677734375, "train/length": 100, "episodes": 211}
+{"step": 42400, "train/return": -1375.412353515625, "train/length": 100, "episodes": 212}
+{"step": 42600, "train/return": -1546.0074462890625, "train/length": 100, "episodes": 213}
+{"step": 42800, "train/return": -1531.6546630859375, "train/length": 100, "episodes": 214}
+{"step": 43000, "train/return": -1491.97119140625, "train/length": 100, "episodes": 215}
+{"step": 43000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9943182468414307, "value_loss": 7.164132118225098, "actor_loss": 864.09814453125, "model_grad_norm": 0.0, "reward_grad_norm": 2.198249578475952, "actor_grad_norm": 0.000979265314526856, "value_grad_norm": 914.1070556640625, "action_ent": -14.98008918762207, "fps": 5.576346748410357}
+{"step": 43200, "train/return": -1548.6473388671875, "train/length": 100, "episodes": 216}
+{"step": 43400, "train/return": -1601.30712890625, "train/length": 100, "episodes": 217}
+{"step": 43600, "train/return": -1594.52392578125, "train/length": 100, "episodes": 218}
+{"step": 43800, "train/return": -1536.62890625, "train/length": 100, "episodes": 219}
+{"step": 44000, "train/return": -1600.3145751953125, "train/length": 100, "episodes": 220}
+{"step": 44000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9946479797363281, "value_loss": 9.246112823486328, "actor_loss": 864.70068359375, "model_grad_norm": 0.0, "reward_grad_norm": 3.5009970664978027, "actor_grad_norm": 0.0008025256684049964, "value_grad_norm": 1026.8856201171875, "action_ent": -14.988539695739746, "fps": 5.52202484425635}
+{"step": 44200, "train/return": -1352.83251953125, "train/length": 100, "episodes": 221}
+{"step": 44400, "train/return": -1605.41796875, "train/length": 100, "episodes": 222}
+{"step": 44600, "train/return": -1582.1124267578125, "train/length": 100, "episodes": 223}
+{"step": 44800, "train/return": -1575.015625, "train/length": 100, "episodes": 224}
+{"step": 45000, "train/return": -1546.967529296875, "train/length": 100, "episodes": 225}
+{"step": 45000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9895574450492859, "value_loss": 8.369950294494629, "actor_loss": 874.897216796875, "model_grad_norm": 0.0, "reward_grad_norm": 2.40645170211792, "actor_grad_norm": 0.00102077960036695, "value_grad_norm": 1071.332763671875, "action_ent": -14.985395431518555, "fps": 5.502253174658524}
+{"step": 45200, "train/return": -967.5101318359375, "train/length": 100, "episodes": 226}
+{"step": 45400, "train/return": -1542.6229248046875, "train/length": 100, "episodes": 227}
+{"step": 45600, "train/return": -1593.7015380859375, "train/length": 100, "episodes": 228}
+{"step": 45800, "train/return": -1269.9346923828125, "train/length": 100, "episodes": 229}
+{"step": 46000, "train/return": -1572.1649169921875, "train/length": 100, "episodes": 230}
+{"step": 46000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0020992755889893, "value_loss": 9.94926643371582, "actor_loss": 887.8054809570312, "model_grad_norm": 0.0, "reward_grad_norm": 3.9551029205322266, "actor_grad_norm": 0.0008200080483220518, "value_grad_norm": 1397.459228515625, "action_ent": NaN, "fps": 5.483215826734467}
+{"step": 46000, "test/return": -1652.935791015625, "test/length": 100, "episodes": 230}
+{"step": 46200, "train/return": -1359.0286865234375, "train/length": 100, "episodes": 231}
+{"step": 46400, "train/return": -1268.916259765625, "train/length": 100, "episodes": 232}
+{"step": 46600, "train/return": -1568.8599853515625, "train/length": 100, "episodes": 233}
+{"step": 46800, "train/return": -1277.213134765625, "train/length": 100, "episodes": 234}
+{"step": 47000, "train/return": -1587.166259765625, "train/length": 100, "episodes": 235}
+{"step": 47000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0036158561706543, "value_loss": 11.138899803161621, "actor_loss": 886.3102416992188, "model_grad_norm": 0.0, "reward_grad_norm": 4.242563247680664, "actor_grad_norm": 0.0006852674414403737, "value_grad_norm": 1307.2427978515625, "action_ent": -14.981401443481445, "fps": 5.468848271431484}
+{"step": 47200, "train/return": -1357.077392578125, "train/length": 100, "episodes": 236}
+{"step": 47400, "train/return": -1408.025634765625, "train/length": 100, "episodes": 237}
+{"step": 47600, "train/return": -1562.9443359375, "train/length": 100, "episodes": 238}
+{"step": 47800, "train/return": -1568.819091796875, "train/length": 100, "episodes": 239}
+{"step": 48000, "train/return": -1475.809326171875, "train/length": 100, "episodes": 240}
+{"step": 48000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.0042790174484253, "value_loss": 9.217662811279297, "actor_loss": 900.2276611328125, "model_grad_norm": 0.0, "reward_grad_norm": 3.5110535621643066, "actor_grad_norm": 0.000698367424774915, "value_grad_norm": 1116.8470458984375, "action_ent": -14.982047080993652, "fps": 5.640456358489479}
+{"step": 48200, "train/return": -1184.580322265625, "train/length": 100, "episodes": 241}
+{"step": 48400, "train/return": -1367.7896728515625, "train/length": 100, "episodes": 242}
+{"step": 48600, "train/return": -1600.9168701171875, "train/length": 100, "episodes": 243}
+{"step": 48800, "train/return": -1546.6719970703125, "train/length": 100, "episodes": 244}
+{"step": 49000, "train/return": -1065.6759033203125, "train/length": 100, "episodes": 245}
+{"step": 49000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 1.003699541091919, "value_loss": 13.890795707702637, "actor_loss": 923.3238525390625, "model_grad_norm": 0.0, "reward_grad_norm": 4.419093132019043, "actor_grad_norm": 0.0006883807363919914, "value_grad_norm": 1483.86181640625, "action_ent": -14.994536399841309, "fps": 5.6109186116610825}
+{"step": 49200, "train/return": -1611.1102294921875, "train/length": 100, "episodes": 246}
+{"step": 49400, "train/return": -1069.0223388671875, "train/length": 100, "episodes": 247}
+{"step": 49600, "train/return": -1562.3997802734375, "train/length": 100, "episodes": 248}
+{"step": 49800, "train/return": -1378.98291015625, "train/length": 100, "episodes": 249}
+{"step": 50000, "train/return": -1595.430419921875, "train/length": 100, "episodes": 250}
+{"step": 50000, "expl_amount": 0.3000015318393707, "model_loss": 0.0, "reward_loss": 0.9918550252914429, "value_loss": 8.667779922485352, "actor_loss": 924.213623046875, "model_grad_norm": 0.0, "reward_grad_norm": 2.9909377098083496, "actor_grad_norm": 0.0008188573992811143, "value_grad_norm": 1095.5732421875, "action_ent": -14.995527267456055, "fps": 5.596651587514802}
+{"step": 50200, "train/return": -1161.768310546875, "train/length": 100, "episodes": 251}
+{"step": 50400, "train/return": -1147.489990234375, "train/length": 100, "episodes": 252}
+{"step": 50600, "train/return": -1446.3863525390625, "train/length": 100, "episodes": 253}
+{"step": 50800, "train/return": -1276.845458984375, "train/length": 100, "episodes": 254}
+{"step": 51000, "train/return": -1573.709716796875, "train/length": 100, "episodes": 255}
