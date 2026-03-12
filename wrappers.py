@@ -340,7 +340,7 @@ class GymWrapper:
   """
 
   def __init__(self, env_name, size=(64, 64)):
-    self._env = gym.make(env_name, render_mode='rgb_array')
+    self._env = gym.make(env_name)
     self._size = size
 
   @property
@@ -357,7 +357,7 @@ class GymWrapper:
     return self._env.action_space
 
   def _get_image(self):
-    frame = self._env.render()
+    frame = self._env.render(mode='rgb_array')
     # gym with Python 3.12 may return a list of frames; take the last one
     if isinstance(frame, list):
       frame = frame[-1]
