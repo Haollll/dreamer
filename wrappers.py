@@ -1,8 +1,15 @@
 import atexit
 import functools
+import os
 import sys
 import threading
 import traceback
+
+# Must be set before pygame is imported/initialized in any process (including
+# spawned child processes). SDL_VIDEODRIVER=offscreen lets pygame render
+# without a physical display, which is required in headless environments (Colab).
+os.environ.setdefault('SDL_VIDEODRIVER', 'offscreen')
+os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 
 import gym
 import numpy as np
