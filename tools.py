@@ -361,10 +361,11 @@ class Adam(tf.Module):
       count = sum(np.prod(x.shape) for x in self._variables)
       print(f'Found {count} {self._name} parameters.')
     assert len(loss.shape) == 0, loss.shape
+    loss_scale = tf.cast(self._opt.loss_scale_factor, loss.dtype)
     with tape:
-      loss = self._opt.get_scaled_loss(loss)
-    grads = tape.gradient(loss, self._variables)
-    grads = self._opt.get_unscaled_gradients(grads)
+      scaled_loss = loss * loss_scale
+    grads = tape.gradient(scaled_loss, self._variables)
+    grads = [g / loss_scale if g is not None else g for g in grads]
     norm = tf.linalg.global_norm(grads)
     if self._clip:
       grads, _ = tf.clip_by_global_norm(grads, self._clip, norm)
