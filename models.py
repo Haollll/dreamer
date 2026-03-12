@@ -133,7 +133,7 @@ class DenseDecoder(tools.Module):
     x = features
     for index in range(self._layers):
       x = self.get(f'h{index}', tfkl.Dense, self._units, self._act)(x)
-    x = self.get(f'hout', tfkl.Dense, np.prod(self._shape))(x)
+    x = self.get(f'hout', tfkl.Dense, int(np.prod(self._shape)))(x)
     x = tf.reshape(x, tf.concat([tf.shape(features)[:-1], self._shape], 0))
     if self._dist == 'normal':
       return tfd.Independent(tfd.Normal(x, 1), len(self._shape))
