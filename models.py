@@ -49,7 +49,8 @@ class RSSM(tools.Module):
     return prior
 
   def get_feat(self, state):
-    return tf.concat([state['stoch'], state['deter']], -1)
+    dtype = prec.global_policy().compute_dtype
+    return tf.concat([tf.cast(state['stoch'], dtype), tf.cast(state['deter'], dtype)], -1)
 
   def get_dist(self, state):
     return tfd.MultivariateNormalDiag(state['mean'], state['std'])
@@ -63,13 +64,14 @@ class RSSM(tools.Module):
     x = self.get('obs2', tfkl.Dense, 2 * self._stoch_size, None)(x)
     mean, std = tf.split(x, 2, -1)
     std = tf.nn.softplus(std) + 0.1
-    stoch = self.get_dist({'mean': mean, 'std': std}).sample()
+    stoch = tf.cast(self.get_dist({'mean': mean, 'std': std}).sample(), mean.dtype)
     post = {'mean': mean, 'std': std, 'stoch': stoch, 'deter': prior['deter']}
     return post, prior
 
   @tf.function
   def img_step(self, prev_state, prev_action):
-    x = tf.concat([prev_state['stoch'], prev_action], -1)
+    dtype = prec.global_policy().compute_dtype
+    x = tf.concat([tf.cast(prev_state['stoch'], dtype), tf.cast(prev_action, dtype)], -1)
     x = self.get('img1', tfkl.Dense, self._hidden_size, self._activation)(x)
     x, deter = self._cell(x, [prev_state['deter']])
     deter = deter[0]  # Keras wraps the state in a list.
@@ -77,7 +79,7 @@ class RSSM(tools.Module):
     x = self.get('img3', tfkl.Dense, 2 * self._stoch_size, None)(x)
     mean, std = tf.split(x, 2, -1)
     std = tf.nn.softplus(std) + 0.1
-    stoch = self.get_dist({'mean': mean, 'std': std}).sample()
+    stoch = tf.cast(self.get_dist({'mean': mean, 'std': std}).sample(), dtype)
     prior = {'mean': mean, 'std': std, 'stoch': stoch, 'deter': deter}
     return prior
 
