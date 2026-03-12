@@ -23,7 +23,7 @@ class RSSM(tools.Module):
         mean=tf.zeros([batch_size, self._stoch_size], dtype),
         std=tf.zeros([batch_size, self._stoch_size], dtype),
         stoch=tf.zeros([batch_size, self._stoch_size], dtype),
-        deter=self._cell.get_initial_state(batch_size=batch_size, dtype=dtype))
+        deter=tf.zeros([batch_size, self._deter_size], dtype=dtype))
 
   @tf.function
   def observe(self, embed, action, state=None):
