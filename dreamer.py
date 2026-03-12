@@ -6,6 +6,9 @@ import os
 import pathlib
 import sys
 import time
+import numpy as np
+if not hasattr(np, 'bool8'):
+    np.bool8 = np.bool_  # removed in NumPy 2.0, required by gym 0.25
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 os.environ['MUJOCO_GL'] = 'egl'
