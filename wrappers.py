@@ -345,10 +345,22 @@ class GymWrapper:
     'state' : raw float32 state vector from the gym environment.
     'image' : rendered RGB frame resized to self._size (64x64x3 by default).
   """
-
+  # In wrappers.py, inside GymWrapper.__init__ or make_env
+  
   def __init__(self, env_name, size=(64, 64)):
     self._env = gym.make(env_name)
     self._size = size
+
+    import gym.envs.classic_control.pendulum as _pendulum
+
+    _original_render = _pendulum.PendulumEnv._render
+
+    def _patched_render(self, mode="human"):
+        if self.last_u is not None:
+            self.last_u = float(self.last_u)
+        return _original_render(self, mode)
+
+    _pendulum.PendulumEnv._render = _patched_render
 
   @property
   def observation_space(self):
@@ -372,6 +384,15 @@ class GymWrapper:
     # Resize to target size (64x64) using PIL
     img = Image.fromarray(frame).resize(self._size, Image.BILINEAR)
     return np.array(img, dtype=np.uint8)
+  
+  def _get_image(self):
+    import cv2
+    frame = self._env.render(mode='rgb_array')
+    if isinstance(frame, list):
+        frame = frame[0]
+    frame = np.array(frame)
+    frame = cv2.resize(frame, (64, 64), interpolation=cv2.INTER_AREA)
+    return frame
 
   def step(self, action):
     obs, reward, done, info = self._env.step(action)
