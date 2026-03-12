@@ -22,12 +22,12 @@
 - `evaluate.py` — 評估腳本，產生 reward curve 與 prediction MSE 圖表
 - `run_comparison.sh` — 一鍵跑完三個模型並產生比較圖
 
-## 環境安裝（Apple Silicon / macOS）
+## 環境安裝（Ubuntu / Linux）
 
 ```bash
 conda create -n dreamer python=3.9 -y
 conda activate dreamer
-pip install tensorflow-macos==2.8.0 tensorflow-metal==0.4.0
+pip install tensorflow==2.8.0
 pip install tensorflow-probability==0.16.0
 pip install "gym==0.25.2" Pillow matplotlib "numpy<2"
 ```
