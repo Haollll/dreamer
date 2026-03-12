@@ -169,6 +169,9 @@ class Dreamer(tools.Module):
     self._strategy.run(self._train, args=(data, log_images))
 
   def _train(self, data, log_images):
+    dtype = prec.global_policy().compute_dtype
+    data = {k: tf.cast(v, dtype) if v.dtype.is_floating else v
+            for k, v in data.items()}
     if self._c.world_model != 'rssm':
       return self._train_alt(data, log_images)
     with tf.GradientTape() as model_tape:
