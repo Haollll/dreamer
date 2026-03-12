@@ -12,6 +12,8 @@ if not hasattr(np, 'bool8'):
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 os.environ['MUJOCO_GL'] = 'egl'
+os.environ.setdefault('SDL_VIDEODRIVER', 'offscreen')  # headless pygame for Colab
+os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 
 import numpy as np
 import tensorflow as tf
