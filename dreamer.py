@@ -12,7 +12,7 @@ os.environ['MUJOCO_GL'] = 'egl'
 
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.mixed_precision import experimental as prec
+from tensorflow.keras import mixed_precision as prec
 
 tf.get_logger().setLevel('ERROR')
 
@@ -521,7 +521,7 @@ def main(config):
       tf.config.experimental.set_memory_growth(gpu, True)
   assert config.precision in (16, 32), config.precision
   if config.precision == 16:
-    prec.set_policy(prec.Policy('mixed_float16'))
+    prec.set_global_policy('mixed_float16')
   config.steps = int(config.steps)
   config.logdir.mkdir(parents=True, exist_ok=True)
   print('Logdir', config.logdir)

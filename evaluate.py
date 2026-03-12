@@ -212,7 +212,7 @@ def _mse_mlp_from_ckpt(ckpt, logdir, obs, actions, nobs, horizon):
         sys.path.insert(0, str(logdir.parent.parent))
         import tensorflow as tf
         import alt_models as am
-        from tensorflow.keras.mixed_precision import experimental as prec
+        from tensorflow.keras import mixed_precision as prec
 
         obs_dim = obs.shape[-1]
         action_dim = actions.shape[-1]
