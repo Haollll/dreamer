@@ -160,8 +160,7 @@ def compute_prediction_mse_from_episodes(logdir, world_model, horizon=5,
     elif world_model == 'mlp':
         return _mse_mlp_from_ckpt(ckpt, logdir, obs, actions, nobs, horizon)
     elif world_model == 'rssm':
-        print('  RSSM MSE in obs-space skipped (requires image decoder).')
-        return None
+        return _image_loss_from_metrics(logdir)
     return None
 
 
@@ -246,6 +245,29 @@ def _mse_mlp_from_ckpt(ckpt, logdir, obs, actions, nobs, horizon):
         return None
 
 
+def _image_loss_from_metrics(logdir):
+    """Return image_loss from metrics.jsonl as a pseudo-MSE result for RSSM.
+
+    image_loss is a negative log-likelihood (lower = better), not MSE, so it
+    is not directly comparable to LinearSSM/MLP MSE.  We return it as a
+    single-value 'per_step' list so it can still appear in the MSE plots with
+    a clear label.
+    """
+    metrics = load_metrics(logdir)
+    key = 'image_loss'
+    if key not in metrics:
+        print(f'  image_loss not found in {logdir}/metrics.jsonl')
+        return None
+    steps, vals = zip(*sorted(metrics[key]))
+    final_val = float(vals[-1])
+    print(f'  RSSM final image_loss (NLL, lower=better): {final_val:.4f}')
+    # Fill all horizon slots with the same scalar so the bar chart renders.
+    return {'per_step': [final_val] * 5,
+            '1step': final_val,
+            '5step': final_val,
+            '_is_nll': True}
+
+
 # ---------------------------------------------------------------------------
 # Plotting helpers
 # ---------------------------------------------------------------------------
@@ -308,7 +330,9 @@ def plot_prediction_mse(mse_results, labels, outpath, horizon=5):
     if valid:
         lbls, results = zip(*valid)
         final_mses = [r[f'{horizon}step'] for r in results]
-        bars = ax.bar(lbls, final_mses,
+        bar_labels = [f'{l}\n(NLL)' if r.get('_is_nll') else l
+                      for l, r in zip(lbls, results)]
+        bars = ax.bar(bar_labels, final_mses,
                       color=COLORS[:len(lbls)], alpha=0.8, edgecolor='black')
         for bar, val in zip(bars, final_mses):
             ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() * 1.02,
@@ -352,8 +376,9 @@ def main(args):
                 max_transitions=args.mse_transitions)
             mse_results.append(result)
             if result:
-                print(f'  1-step MSE: {result["1step"]:.6f}')
-                print(f'  {args.horizon}-step MSE: {result[f"{args.horizon}step"]:.6f}')
+                label = 'NLL (image_loss)' if result.get('_is_nll') else 'MSE'
+                print(f'  1-step {label}: {result["1step"]:.6f}')
+                print(f'  {args.horizon}-step {label}: {result[f"{args.horizon}step"]:.6f}')
 
         if any(r is not None for r in mse_results):
             plot_prediction_mse(mse_results, labels,
